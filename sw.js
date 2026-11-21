@@ -1,9 +1,9 @@
 /* Versioned cache: new releases invalidate older app assets.
  * HTML navigation stays network-first so GitHub updates are seen without re-installing PWA.
  */
-const CACHE='smart-counter-v1.1.0';
+const CACHE='smart-counter-v1.1.1';
 const BASE=new URL('./',self.location.href);
-const FILES=['./','./index.html','./app.css?v=1.0.0','./app.js?v=1.0.0','./detector.worker.js?v=1.1.0','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png','./icons/icon-180.png'];
+const FILES=['./','./index.html','./app.css?v=1.1.0','./app.js?v=1.1.0','./detector.worker.js?v=1.1.0','./manifest.webmanifest','./icon-192.png','./icon-512.png','./icon-180.png'];
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES.map(p=>new URL(p,BASE).href))).then(()=>self.skipWaiting()));
 });
